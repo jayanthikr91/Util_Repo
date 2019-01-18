@@ -1,8 +1,8 @@
 def execute(prop){
 try{
 def pom    
-echo prop.COMMON_GROOVY_FILE_LOC
-def commonutility=load prop.COMMON_GROOVY_FILE_LOC    
+
+
 stage('checkout')
 
 {
