@@ -11,6 +11,7 @@ deleteDir()
 }
 
 def uploadArtifact(prop){
+script{   
 def server = Artifactory.server prop.ARTIFACT_ID
 def uploadSpec = """{
  	
@@ -22,6 +23,6 @@ def uploadSpec = """{
 ]
 }"""
 server.upload(uploadSpec)
-
+ }
 }
 
