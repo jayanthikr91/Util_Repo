@@ -25,4 +25,4 @@ def uploadSpec = """{
 server.upload(uploadSpec)
  }
 }
-
+return this
