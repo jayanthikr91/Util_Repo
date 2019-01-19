@@ -21,6 +21,9 @@ stage('code analysis'){
 stage('artifact upload'){
     commonutility.uploadArtifact();
     }  
+    stage('deployment'){
+    sh prop.SECURE_COPY_CMD+prop.SRC_DEPLOY_LOC+" "+prop.DEST_DEPLOY_LOC
+    }    
    
 }
 return this
