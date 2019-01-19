@@ -18,7 +18,7 @@ def uploadSpec = """{
 "files":[
 {
 "pattern":"${prop.ARTIFACT_PATTERN}",
-"target":"${prop.ARTIFACT_REPO}/${pom.artifactId}/${pom.version}.${BUILD_NUMBER}/"
+"target":"${prop.ARTIFACT_REPO}/${pom.version}.${BUILD_NUMBER}/"
 }
 ]
 }"""
