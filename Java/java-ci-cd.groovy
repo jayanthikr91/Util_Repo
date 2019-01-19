@@ -22,7 +22,19 @@ stage('artifact upload'){
     commonutility.uploadArtifact();
     }  
     stage('deployment'){
-    sh prop.SECURE_COPY_CMD+prop.SRC_DEPLOY_LOC+" "+prop.DEST_DEPLOY_LOC
+    install = false;
+	try {
+		input message: 'Install on new container?', ok: 'Install'
+		Install = true
+		} catch (err) {
+	Install = false
+	
+	}
+	
+       if (Install){   
+	 
+	  sh "docker run -d --name tomcat3 -p 8009:8080 tomcat -v target/*.war:/usr/local/tomcat/webapps/"
+        }
     }    
    
 }
