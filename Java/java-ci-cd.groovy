@@ -1,5 +1,5 @@
 def execute(){
-try{
+
 stage('checkout')
 
 {
@@ -21,22 +21,6 @@ stage('code analysis'){
 stage('artifact upload'){
     commonutility.uploadArtifact();
     }  
-
-
-
-    
-stage('success email'){
-    commonutility.sendSuccessMail();
-       
-  }
- }
-  catch(Exception e){
-  stage('failure email'){
-      commonutility.sendFailureMail();
-    
-  }
-  }
-
-
+   
 }
 return this
