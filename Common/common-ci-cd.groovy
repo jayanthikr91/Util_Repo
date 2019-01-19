@@ -3,8 +3,8 @@ def sendSuccessMail(){
    emailext body: '${DEFAULT_CONTENT}', subject: '${DEFAULT_SUBJECT}', to: prop.RECEPIENT_MAIL_ID
  
 }
-def sendFailureMail(){
-    emailext body: '${DEFAULT_CONTENT}', subject: '${JOB_NAME} - BUILD # ${BUILD_NUMBER} -  FAILURE', to: prop.RECEPIENT_MAIL_ID
+def sendFailureMail(e){
+    emailext body: '${e}', subject: '${JOB_NAME} - BUILD # ${BUILD_NUMBER} -  FAILURE', to: prop.RECEPIENT_MAIL_ID
 }
 def clearWorkspace(){
 deleteDir()
