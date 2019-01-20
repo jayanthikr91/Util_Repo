@@ -33,7 +33,7 @@ stage('artifact upload'){
 	
        if (Install){   
 	 
-	  sh "docker run -d --name tomcat3 -p 8009:8080 tomcat -v target/*.war:/usr/local/tomcat/webapps/"
+	  sh "docker run -d --name tomcat3 -p 8009:8080 tomcat"
         }
     }    
    
