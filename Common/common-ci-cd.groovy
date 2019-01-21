@@ -3,13 +3,9 @@ def sendSuccessMail(){
    emailext body: '${DEFAULT_CONTENT}', subject: '${DEFAULT_SUBJECT}', to: prop.RECEPIENT_MAIL_ID
  
 }
-def sendFailureMail(e){
-    emailext body: '${e}', subject: '${JOB_NAME} - BUILD # ${BUILD_NUMBER} -  FAILURE', to: prop.RECEPIENT_MAIL_ID
+def sendFailureMail(error){
+   emailext body: "${error}", subject: '${JOB_NAME} - BUILD # ${BUILD_NUMBER} -  FAILURE', to: prop.RECEPIENT_MAIL_ID
 }
-def clearWorkspace(){
-deleteDir()
-}
-
 def uploadArtifact(){
 script{   
 def server = Artifactory.server prop.ARTIFACT_ID
