@@ -22,19 +22,10 @@ stage('artifact upload'){
     commonutility.uploadArtifact();
     }  
     stage('deployment'){
-    install = false;
-	try {
-		input message: 'Install on new container?', ok: 'Install'
-		Install = true
-		} catch (err) {
-	Install = false
-	
-	}
-	
-       if (Install){   
-	 
-	  sh "docker run -d --name tomcat3 -p 8009:8080 tomcat"
-        }
+     	 
+       sh prop.DOCKER_CMD
+       sh prop.DOCKER_CP_CMD+prop.SRC_DEPLOY_LOC+prop.DOCKER_CONT_LOC
+       echo prop.DOCKER_RUN+prop.DOCKER_CONT_NAME+prop.DOCKER_PORT_CMD+prop.DOCKER_CONT_PORT+prop.DOCKER_PORT
     }    
    
 }
