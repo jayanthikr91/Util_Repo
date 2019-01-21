@@ -20,12 +20,11 @@ stage('code analysis'){
 }
 stage('artifact upload'){
     commonutility.uploadArtifact();
-    }  
-    stage('deployment'){
+ }  
+ stage('deployment'){
      	 
        sh prop.DOCKER_CMD
-       sh prop.DOCKER_CP_CMD+prop.SRC_DEPLOY_LOC+prop.DOCKER_CONT_LOC
-       echo prop.DOCKER_RUN+prop.DOCKER_CONT_NAME+prop.DOCKER_PORT_CMD+prop.DOCKER_CONT_PORT+prop.DOCKER_PORT
+       sh prop.DOCKER_CP_CMD+prop.SRC_DEPLOY_LOC+" "+prop.DOCKER_CONT_LOC
     }    
    
 }
